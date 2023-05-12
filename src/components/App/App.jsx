@@ -1,10 +1,14 @@
-import { fetchContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/contacts/operations';
 import { Container, TitleMain, TitleSec } from './App.styled';
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
+import {
+  selectContacts,
+  selectError,
+  selectIsLoading,
+} from 'redux/contacts/selectors';
 import { useEffect } from 'react';
 
 const App = () => {

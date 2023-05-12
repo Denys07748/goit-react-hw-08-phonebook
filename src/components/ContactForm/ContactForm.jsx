@@ -2,8 +2,8 @@ import { FormEl } from './ContactForm.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
 
 const {
   validName: { checkName, messageName },
