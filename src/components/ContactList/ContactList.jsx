@@ -10,8 +10,8 @@ const ContactList = () => {
     <p>Сontacts not found</p>
   ) : (
     <ContactsList>
-      {contacts.map(({ id, name, phone }) => (
-        <ContactListItem key={id} id={id} name={name} phone={phone} />
+      {contacts.map(({ id, name, number }) => (
+        <ContactListItem key={id} id={id} name={name} number={number} />
       ))}
     </ContactsList>
   );

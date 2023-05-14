@@ -25,7 +25,7 @@ const schema = yup.object().shape({
     .string()
     .matches(checkName, messageName)
     .required('Name is required'),
-  phone: yup
+  number: yup
     .string()
     .matches(checkNum, messageNum)
     .required('Number is required'),
@@ -33,7 +33,7 @@ const schema = yup.object().shape({
 
 const initialValues = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 const ContactForm = () => {
@@ -42,12 +42,12 @@ const ContactForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     const isIncludes = contacts.some(
-      ({ name, phone }) =>
+      ({ name, number }) =>
         name.toLowerCase() === values.name.toLowerCase() ||
-        phone === values.phone
+        number === values.number
     );
     if (isIncludes) {
-      alert('A contact with the same name or phone is already in contacts');
+      alert('A contact with the same name or number is already in contacts');
       return;
     }
 
@@ -67,10 +67,10 @@ const ContactForm = () => {
           <Field type="text" name="name" />
           <ErrorMessage name="name" component="div" />
         </label>
-        <label htmlFor="phone">
+        <label htmlFor="number">
           Number
-          <Field type="tel" name="phone" />
-          <ErrorMessage name="phone" component="div" />
+          <Field type="tel" name="number" />
+          <ErrorMessage name="number" component="div" />
         </label>
         <button type="submit">Add contact</button>
       </FormEl>
