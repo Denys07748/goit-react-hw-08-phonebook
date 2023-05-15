@@ -1,8 +1,7 @@
-import { FormEl } from './ContactForm.styled';
+import { FormEl } from './LoginForm.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
-// import { selectContacts } from 'redux/contacts/selectors';
+import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
 const schema = yup.object().shape({
@@ -17,7 +16,6 @@ const initialValues = {
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-  //   const contacts = useSelector(selectContacts);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(logIn(values));
