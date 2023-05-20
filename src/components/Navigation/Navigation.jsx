@@ -9,7 +9,9 @@ export const Navigation = () => {
   return (
     <nav>
       <NavLink to="/">
-        <Typography variant="h5">Phonebook</Typography>
+        <Box component="span" m={2}>
+          <Typography variant="h5">Phonebook</Typography>
+        </Box>
       </NavLink>
       {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
     </nav>

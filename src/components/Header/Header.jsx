@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <AppBar position="fixed">
-      <Container fixed>
+      <Container>
         <Toolbar>
           <Box sx={{ flexGrow: 1 }}>
             <Navigation />
