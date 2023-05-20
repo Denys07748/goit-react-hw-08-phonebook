@@ -36,7 +36,7 @@ const LoginForm = () => {
         </label>
         <label htmlFor="password">
           Password
-          <Field type="tel" name="password" />
+          <Field type="password" name="password" />
           <ErrorMessage name="password" component="div" />
         </label>
         <button type="submit">Log In</button>

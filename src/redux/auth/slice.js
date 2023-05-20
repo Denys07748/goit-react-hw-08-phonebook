@@ -9,6 +9,10 @@ const handleFulfilled = (state, { payload }) => {
   state.isLoggedIn = true;
 };
 
+const handleRejected = (state, { payload }) => {
+  state.error = payload;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -16,6 +20,7 @@ const authSlice = createSlice({
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
+    error: null,
   },
   extraReducers: builder => {
     builder
@@ -35,10 +40,8 @@ const authSlice = createSlice({
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
       })
-      .addMatcher(
-        isAnyOf(register.fulfilled, logIn.fulfilled),
-        handleFulfilled
-      );
+      .addMatcher(isAnyOf(register.fulfilled, logIn.fulfilled), handleFulfilled)
+      .addMatcher(isAnyOf(register.rejected, logIn.rejected), handleRejected);
   },
 });
 

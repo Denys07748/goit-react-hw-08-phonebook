@@ -3,6 +3,7 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+// import { selectAuthError } from 'redux/auth/selectors';
 
 const schema = yup.object().shape({
   name: yup.string().required(),

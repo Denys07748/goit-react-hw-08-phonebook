@@ -7,13 +7,17 @@ export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <nav>
-      <NavLink to="/">
-        <Box component="span" m={2}>
-          <Typography variant="h5">Phonebook</Typography>
-        </Box>
-      </NavLink>
-      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
-    </nav>
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box mr={2}>
+        <NavLink to="/">
+          <Typography variant="h6">Phonebook</Typography>
+        </NavLink>
+      </Box>
+      {isLoggedIn && (
+        <NavLink to="/contacts">
+          <Typography variant="h7">Contacts</Typography>
+        </NavLink>
+      )}
+    </Box>
   );
 };

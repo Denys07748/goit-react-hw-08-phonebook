@@ -11,6 +11,7 @@ const HomePage = lazy(() => import('pages/Home'));
 const RegisterPage = lazy(() => import('pages/Register'));
 const LoginPage = lazy(() => import('pages/Login'));
 const ContactsPage = lazy(() => import('pages/Contacts'));
+const NotFound = lazy(() => import('pages/NotFound'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ const App = () => {
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

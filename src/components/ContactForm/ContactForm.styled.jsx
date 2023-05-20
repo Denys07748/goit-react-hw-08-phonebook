@@ -8,6 +8,7 @@ export const FormEl = styled(Form)`
   outline: 2px solid gray;
   border-radius: 8px;
   padding: 10px;
+  margin: auto;
 
   label {
     display: flex;

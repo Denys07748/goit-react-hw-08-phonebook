@@ -6,7 +6,7 @@ export const ContactsList = styled.ul`
   max-width: 440px;
   outline: 2px solid gray;
   border-radius: 8px;
-  padding: 10px;
+  padding: 15px;
 `;
 
 export const ContactEl = styled.li`
