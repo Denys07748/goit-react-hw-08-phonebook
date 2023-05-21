@@ -26,3 +26,15 @@ a {
 a.active {
   color: #5ca8f4;
 }
+
+ button {
+    width: 110px;
+    cursor: pointer;
+    background-color: #5ca8f4;
+    border-radius: 5px;
+    height: 20px;
+  }
+
+  button:hover {
+    background-color: #2393dd;
+  }

@@ -24,7 +24,12 @@ const AddContact = () => {
   return (
     <div>
       <Icon
-        sx={{ fontSize: 30, display: 'flex', alignItems: 'center' }}
+        sx={{
+          fontSize: 30,
+          display: 'flex',
+          alignItems: 'center',
+          cursor: 'pointer',
+        }}
         onClick={handleOpen}
       >
         add_circle

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { ContactEl } from './ContactList.styled';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
+import { Button } from '@mui/material';
 
 const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -11,9 +12,9 @@ const ContactListItem = ({ id, name, number }) => {
       <p>
         {name}: {number}
       </p>
-      <button type="button" onClick={() => dispatch(deleteContact(id))}>
+      <Button type="button" onClick={() => dispatch(deleteContact(id))}>
         Delete
-      </button>
+      </Button>
     </ContactEl>
   );
 };

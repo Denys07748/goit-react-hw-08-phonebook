@@ -28,7 +28,6 @@ const Layout = () => {
       <Container
         sx={{
           mt: '5rem',
-          background: 'rgba(255, 255, 255, 0.2)',
           backgroundImage: `url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
