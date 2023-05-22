@@ -1,6 +1,6 @@
-import { ContactsList } from './ContactList.styled';
+// import { ContactsList } from './ContactList.styled';
 import {
-  Button,
+  Container,
   TableContainer,
   Table,
   TableHead,
@@ -8,8 +8,10 @@ import {
   TableRow,
   TableBody,
   Paper,
+  Typography,
+  Box,
 } from '@mui/material';
-// import ContactListItem from './ContactListItem';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Filter from 'components/Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -17,6 +19,7 @@ import {
   selectVisibleContacts,
 } from 'redux/contacts/selectors';
 import { deleteContact } from 'redux/contacts/operations';
+import AddContact from 'components/AddContact/AddContact';
 
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -24,30 +27,68 @@ const ContactList = () => {
   const dispatch = useDispatch();
 
   return (
-    <ContactsList>
+    <Container
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        background: 'rgba(11, 9, 26, 0.808)',
+        maxWidth: '500px',
+        outline: '2px solid gray',
+        borderRadius: '8px',
+        padding: '15px',
+      }}
+    >
       {contacts.length === 0 ? (
-        <p>
-          There are no contacts in your phone book yet. Please add contacts.
-        </p>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Typography variant="h7">
+            There are no contacts in your phone book yet. Please add contacts.
+          </Typography>
+          <AddContact />
+        </Box>
       ) : (
         <>
-          <Filter />
-          {visibleContacts.length === 0 ? (
-            <p>Сontacts not found</p>
-          ) : (
-            <TableContainer
-              component={Paper}
-              // sx={{ background: 'rgba(11, 9, 26, 0.808)' }}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            <Filter />
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
             >
+              <Typography variant="h7" mr={1}>
+                Add contact
+              </Typography>
+              <AddContact />
+            </Box>
+          </Box>
+          {visibleContacts.length === 0 ? (
+            <p>Contacts not found</p>
+          ) : (
+            <TableContainer component={Paper}>
               <Table
                 sx={{ minWidth: 320, bgcolor: 'inherit' }}
                 aria-label="simple table"
               >
                 <TableHead>
-                  <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell align="right">Number</TableCell>
-                    <TableCell align="right">Delete</TableCell>
+                  <TableRow sx={{ color: '#5ca8f4' }}>
+                    <TableCell sx={{ color: 'inherit' }}>Name</TableCell>
+                    <TableCell align="center" sx={{ color: 'inherit' }}>
+                      Number
+                    </TableCell>
+                    <TableCell align="right" sx={{ color: 'inherit' }}>
+                      Delete
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -59,14 +100,14 @@ const ContactList = () => {
                       <TableCell component="th" scope="row">
                         {name}
                       </TableCell>
-                      <TableCell align="right">{number}</TableCell>
+                      <TableCell align="center">{number}</TableCell>
                       <TableCell align="right">
-                        <Button
-                          type="button"
+                        <DeleteIcon
+                          sx={{
+                            cursor: 'pointer',
+                          }}
                           onClick={() => dispatch(deleteContact(id))}
-                        >
-                          Delete
-                        </Button>
+                        />
                       </TableCell>
                     </TableRow>
                   ))}
@@ -76,10 +117,7 @@ const ContactList = () => {
           )}
         </>
       )}
-      {/* {contacts.map(({ id, name, number }) => (
-        <ContactListItem key={id} id={id} name={name} number={number} />
-      ))} */}
-    </ContactsList>
+    </Container>
   );
 };
 

@@ -5,7 +5,6 @@ export const FormEl = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 300px;
-  outline: 2px solid gray;
   border-radius: 8px;
   padding: 10px;
   margin: auto;
@@ -18,6 +17,7 @@ export const FormEl = styled(Form)`
 
   input {
     margin-top: 6px;
+    outline: none;
   }
 
   div {

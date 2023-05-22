@@ -10,10 +10,11 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  background: 'rgba(11, 9, 26, 0.808)',
+  border: '1px solid #000',
+  borderRadius: 4,
   boxShadow: 24,
-  p: 4,
+  p: 2,
 };
 
 const AddContact = () => {
@@ -41,7 +42,7 @@ const AddContact = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <ContactForm />
+          <ContactForm onClose={handleClose} />
         </Box>
       </Modal>
     </div>

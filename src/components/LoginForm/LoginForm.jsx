@@ -1,6 +1,7 @@
 import { FormEl } from './LoginForm.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
@@ -39,7 +40,9 @@ const LoginForm = () => {
           <Field type="password" name="password" />
           <ErrorMessage name="password" component="div" />
         </label>
-        <button type="submit">Log In</button>
+        <Button variant="contained" type="submit">
+          Log In
+        </Button>
       </FormEl>
     </Formik>
   );

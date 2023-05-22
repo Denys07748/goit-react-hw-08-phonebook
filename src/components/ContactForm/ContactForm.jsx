@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { FormEl } from './ContactForm.styled';
+import { Button } from '@mui/material';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,7 +38,7 @@ const initialValues = {
   number: '',
 };
 
-const ContactForm = () => {
+const ContactForm = ({ onClose }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
@@ -53,6 +55,7 @@ const ContactForm = () => {
 
     dispatch(addContact(values));
     resetForm();
+    onClose();
   };
 
   return (
@@ -72,10 +75,16 @@ const ContactForm = () => {
           <Field type="tel" name="number" />
           <ErrorMessage name="number" component="div" />
         </label>
-        <button type="submit">Add contact</button>
+        <Button variant="contained" type="submit">
+          Add
+        </Button>
       </FormEl>
     </Formik>
   );
 };
 
 export default ContactForm;
+
+ContactForm.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};

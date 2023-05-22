@@ -1,9 +1,9 @@
 import { FormEl } from './RegisterForm.styled';
+import { Button } from '@mui/material';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-// import { selectAuthError } from 'redux/auth/selectors';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -47,7 +47,9 @@ const RegisterForm = () => {
           <Field type="password" name="password" />
           <ErrorMessage name="password" component="div" />
         </label>
-        <button type="submit">Register</button>
+        <Button variant="contained" type="submit">
+          Register
+        </Button>
       </FormEl>
     </Formik>
   );
