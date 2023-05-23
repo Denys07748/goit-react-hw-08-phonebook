@@ -27,14 +27,20 @@ a.active {
   color: #5ca8f4;
 }
 
- button {
-    width: 110px;
-    cursor: pointer;
-    background-color: #5ca8f4;
-    border-radius: 5px;
-    height: 20px;
-  }
+button {
+  width: 120px;
+  cursor: pointer;
+  background-color: #5ca8f4;
+  border-radius: 5px;
+  height: 25px;
+}
 
-  button:hover {
-    background-color: #2393dd;
-  }
+button:hover {
+  background-color: #2393dd;
+}
+
+input {
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+}

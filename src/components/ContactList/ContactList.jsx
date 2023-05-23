@@ -1,4 +1,3 @@
-// import { ContactsList } from './ContactList.styled';
 import {
   Container,
   TableContainer,
