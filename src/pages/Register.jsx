@@ -1,14 +1,15 @@
+import { Box } from '@mui/material';
 import FormContainer from 'components/FormContainer/FormContainer';
 import RegisterForm from 'components/RegisterForm/RegisterForm';
 
 const Register = () => {
   return (
-    <div>
+    <Box>
       <title>Registration</title>
       <FormContainer>
         <RegisterForm />
       </FormContainer>
-    </div>
+    </Box>
   );
 };
 

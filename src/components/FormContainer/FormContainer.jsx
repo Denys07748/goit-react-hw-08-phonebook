@@ -10,7 +10,7 @@ const FormContainer = ({ children }) => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         background: 'rgba(11, 9, 26, 0.808)',
-        maxWidth: '350px',
+        width: '350px',
         outline: '2px solid gray',
         borderRadius: '8px',
         padding: '15px',

@@ -104,6 +104,9 @@ const ContactList = () => {
                         <DeleteIcon
                           sx={{
                             cursor: 'pointer',
+                            '& :hover': {
+                              color: '#2393dd',
+                            },
                           }}
                           onClick={() => dispatch(deleteContact(id))}
                         />

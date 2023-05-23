@@ -23,7 +23,13 @@ const AddContact = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <Box
+      sx={{
+        '& :hover': {
+          color: '#2393dd',
+        },
+      }}
+    >
       <Icon
         sx={{
           fontSize: 30,
@@ -45,7 +51,7 @@ const AddContact = () => {
           <ContactForm onClose={handleClose} />
         </Box>
       </Modal>
-    </div>
+    </Box>
   );
 };
 
