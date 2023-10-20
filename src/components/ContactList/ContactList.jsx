@@ -19,6 +19,7 @@ import {
 } from 'redux/contacts/selectors';
 import { deleteContact } from 'redux/contacts/operations';
 import AddContact from 'components/AddContact/AddContact';
+import { container, icon, table } from 'styles';
 
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -26,24 +27,9 @@ const ContactList = () => {
   const dispatch = useDispatch();
 
   return (
-    <Container
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        background: 'rgba(11, 9, 26, 0.808)',
-        maxWidth: '500px',
-        outline: '2px solid gray',
-        borderRadius: '8px',
-        padding: '15px',
-      }}
-    >
+    <Container sx={container.contactList}>
       {contacts.length === 0 ? (
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
+        <Box sx={container.contactHead}>
           <Typography variant="h7">
             There are no contacts in your phone book yet. Please add contacts.
           </Typography>
@@ -51,20 +37,9 @@ const ContactList = () => {
         </Box>
       ) : (
         <>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
+          <Box sx={container.contactHead}>
             <Filter />
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
+            <Box sx={container.contactHead}>
               <Typography variant="h7" mr={1}>
                 Add contact
               </Typography>
@@ -75,39 +50,28 @@ const ContactList = () => {
             <p>Contacts not found</p>
           ) : (
             <TableContainer component={Paper}>
-              <Table
-                sx={{ minWidth: 320, bgcolor: 'inherit' }}
-                aria-label="simple table"
-              >
+              <Table sx={table.tableContacts} aria-label="simple table">
                 <TableHead>
-                  <TableRow sx={{ color: '#5ca8f4' }}>
-                    <TableCell sx={{ color: 'inherit' }}>Name</TableCell>
-                    <TableCell align="center" sx={{ color: 'inherit' }}>
+                  <TableRow sx={table.tableRowHead}>
+                    <TableCell sx={table.tableCell}>Name</TableCell>
+                    <TableCell align="center" sx={table.tableCell}>
                       Number
                     </TableCell>
-                    <TableCell align="right" sx={{ color: 'inherit' }}>
+                    <TableCell align="right" sx={table.tableCell}>
                       Delete
                     </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {visibleContacts.map(({ id, name, number }) => (
-                    <TableRow
-                      key={id}
-                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    >
+                    <TableRow key={id} sx={table.tableRowContact}>
                       <TableCell component="th" scope="row">
                         {name}
                       </TableCell>
                       <TableCell align="center">{number}</TableCell>
                       <TableCell align="right">
                         <DeleteIcon
-                          sx={{
-                            cursor: 'pointer',
-                            '& :hover': {
-                              color: '#2393dd',
-                            },
-                          }}
+                          sx={icon.deleteIcon}
                           onClick={() => dispatch(deleteContact(id))}
                         />
                       </TableCell>
