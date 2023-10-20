@@ -3,19 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Icon } from '@mui/material';
 import ContactForm from 'components/ContactForm/ContactForm';
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  background: 'rgba(11, 9, 26, 0.808)',
-  border: '1px solid #000',
-  borderRadius: 4,
-  boxShadow: 24,
-  p: 2,
-};
+import { container, icon } from 'styles';
 
 const AddContact = () => {
   const [open, setOpen] = React.useState(false);
@@ -23,22 +11,8 @@ const AddContact = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <Box
-      sx={{
-        '& :hover': {
-          color: '#2393dd',
-        },
-      }}
-    >
-      <Icon
-        sx={{
-          fontSize: 30,
-          display: 'flex',
-          alignItems: 'center',
-          cursor: 'pointer',
-        }}
-        onClick={handleOpen}
-      >
+    <Box sx={container.addContact}>
+      <Icon sx={icon.addContact} onClick={handleOpen}>
         add_circle
       </Icon>
       <Modal
@@ -47,7 +21,7 @@ const AddContact = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={container.contactForm}>
           <ContactForm onClose={handleClose} />
         </Box>
       </Modal>
