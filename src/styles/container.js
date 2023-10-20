@@ -1,3 +1,14 @@
+import bgImage from 'images/bg_img.jpg';
+
+export const main = {
+  mt: '5rem',
+  backgroundImage: `url(${bgImage})`,
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  width: '100%',
+  height: '100vh',
+};
+
 export const addContact = {
   '& :hover': {
     color: '#2393dd',
@@ -30,5 +41,31 @@ export const contactList = {
 export const contactHead = {
   display: 'flex',
   justifyContent: 'space-between',
+  alignItems: 'center',
+};
+
+export const filter = { mb: 1, width: '25ch' };
+
+export const form = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  background: 'rgba(11, 9, 26, 0.808)',
+  width: '350px',
+  outline: '2px solid gray',
+  borderRadius: '8px',
+  padding: '15px',
+};
+
+export const spinner = {
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+};
+
+export const userMenu = {
+  display: 'flex',
   alignItems: 'center',
 };
