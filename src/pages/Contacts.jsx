@@ -1,5 +1,4 @@
 import { fetchContacts } from 'redux/contacts/operations';
-// import { Container, TitleMain, TitleSec } from './App.styled';
 import ContactList from 'components/ContactList/ContactList';
 import { Box } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';

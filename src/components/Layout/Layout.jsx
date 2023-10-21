@@ -10,7 +10,7 @@ import {
   ThemeProvider,
   createTheme,
 } from '@mui/material';
-import bgImage from 'images/bg_img.jpg';
+import { container } from 'styles';
 
 const darkTheme = createTheme({
   palette: {
@@ -23,16 +23,7 @@ const Layout = () => {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Header />
-      <Container
-        sx={{
-          mt: '5rem',
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          width: '100%',
-          height: '100vh',
-        }}
-      >
+      <Container sx={container.main}>
         <main>
           <Suspense fallback={<Loader />}>
             <Outlet />
