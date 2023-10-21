@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import { FormEl } from './ContactForm.styled';
-import { Button } from '@mui/material';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Button, FormLabel } from '@mui/material';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
+import { form } from 'styles';
 
 const {
   validName: { checkName, messageName },
@@ -64,21 +64,25 @@ const ContactForm = ({ onClose }) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <FormEl>
-        <label htmlFor="name">
+      <Form style={form.form}>
+        <FormLabel htmlFor="name" sx={form.label}>
           Name
-          <Field type="text" name="name" />
-          <ErrorMessage name="name" component="div" />
-        </label>
-        <label htmlFor="number">
+          <Field type="text" name="name" style={form.input} />
+          <ErrorMessage name="name" component="div" style={form.errorMessage} />
+        </FormLabel>
+        <FormLabel htmlFor="number" sx={form.label}>
           Number
-          <Field type="tel" name="number" />
-          <ErrorMessage name="number" component="div" />
-        </label>
+          <Field type="tel" name="number" style={form.input} />
+          <ErrorMessage
+            name="number"
+            component="div"
+            style={form.errorMessage}
+          />
+        </FormLabel>
         <Button variant="contained" type="submit">
           Add
         </Button>
-      </FormEl>
+      </Form>
     </Formik>
   );
 };
