@@ -1,9 +1,9 @@
-import { FormEl } from './LoginForm.styled';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { Button } from '@mui/material';
+import { Button, FormLabel } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import { form } from 'styles';
 
 const schema = yup.object().shape({
   email: yup.string().required(),
@@ -29,21 +29,29 @@ const LoginForm = () => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <FormEl>
-        <label htmlFor="email">
+      <Form style={form.form}>
+        <FormLabel htmlFor="email" sx={form.label}>
           Email
-          <Field type="tel" name="email" />
-          <ErrorMessage name="email" component="div" />
-        </label>
-        <label htmlFor="password">
+          <Field type="tel" name="email" style={form.input} />
+          <ErrorMessage
+            name="email"
+            component="div"
+            style={form.errorMessage}
+          />
+        </FormLabel>
+        <FormLabel htmlFor="password" sx={form.label}>
           Password
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
-        </label>
+          <Field type="password" name="password" style={form.input} />
+          <ErrorMessage
+            name="password"
+            component="div"
+            style={form.errorMessage}
+          />
+        </FormLabel>
         <Button variant="contained" type="submit">
           Log In
         </Button>
-      </FormEl>
+      </Form>
     </Formik>
   );
 };
