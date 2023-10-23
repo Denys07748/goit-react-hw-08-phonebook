@@ -1,9 +1,9 @@
-import { FormEl } from './RegisterForm.styled';
-import { Button } from '@mui/material';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Button, FormLabel } from '@mui/material';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import { form } from 'styles';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -31,26 +31,34 @@ const RegisterForm = () => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <FormEl>
-        <label htmlFor="name">
+      <Form style={form.form}>
+        <FormLabel htmlFor="name" sx={form.label}>
           Username
-          <Field type="text" name="name" />
-          <ErrorMessage name="name" component="div" />
-        </label>
-        <label htmlFor="email">
+          <Field type="text" name="name" style={form.input} />
+          <ErrorMessage name="name" component="div" style={form.errorMessage} />
+        </FormLabel>
+        <FormLabel htmlFor="email" sx={form.label}>
           Email
-          <Field type="tel" name="email" />
-          <ErrorMessage name="email" component="div" />
-        </label>
-        <label htmlFor="password">
+          <Field type="tel" name="email" style={form.input} />
+          <ErrorMessage
+            name="email"
+            component="div"
+            style={form.errorMessage}
+          />
+        </FormLabel>
+        <FormLabel htmlFor="password" sx={form.label}>
           Password
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
-        </label>
+          <Field type="password" name="password" style={form.input} />
+          <ErrorMessage
+            name="password"
+            component="div"
+            style={form.errorMessage}
+          />
+        </FormLabel>
         <Button variant="contained" type="submit">
           Register
         </Button>
-      </FormEl>
+      </Form>
     </Formik>
   );
 };
